@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import VideoCard from '../VideoCard/videoCard'; 
+import VideoCard from '../VideoCard/videoCard';
 
 function Feed() {
   const [videos, setVideos] = useState([]);
@@ -10,6 +10,7 @@ function Feed() {
     axios
       .get(apiUrl)
       .then((response) => {
+        console.log(response.data);
         if (response.data.message === 'Success') {
           setVideos(response.data.data.posts);
         } else {
@@ -22,17 +23,19 @@ function Feed() {
   }, [apiUrl]);
 
   return (
-    <div className="App">
-      <h1>Watch Videos</h1>
-      <ul>
-        {videos.map((video) => (
-          <li key={video.postId}>
-            {/* Pass the video data to the VideoCard component */}
-            <VideoCard video={video.submission} />
-          </li>
-        ))}
-      </ul>
-    </div>
+      <div className="flex-grow h-full overflow-y-auto bg-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-5">
+          {!videos.length ? (
+            <p>Loading...</p>
+          ) : (
+            videos.map((video) => (
+              <div key={video.postId} className="mb-8">
+                <VideoCard video={video} />
+              </div>
+            ))
+          )}
+          </div>
+          </div>
   );
 }
 
