@@ -2,16 +2,17 @@ import React from 'react';
 import VideoLength from '../Shared/videoLength';
 import { Link } from "react-router-dom";
 
-const VideoCard = ({ video }) => {
+const VideoCard = ({ video, currentPage }) => {
   const videoTimeInSeconds = 840; //hardcoded, dynamic approach found using flv lib for frontend
   const abbrStyle = {
     cursor: "help",
     textDecoration: "none", 
     justifyContent : "start"
   };
-
+// console.log(currentPage)
   return (
-    <Link to={`/video/${video?.postId}`}>
+    
+    <Link to={`/video/${video?.postId}?page=${currentPage}`}>
     <div className="flex flex-col mb-8 bg-black">
        <div className="relative h-48 md:h-40 md:rounded-xl overflow-hidden flex items-center justify-center">
         {video?.submission?.thumbnail && (

@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-
+import { useParams, useLocation } from "react-router-dom";
 const VideoDetails = () => {
   const { id } = useParams(); // Video ID
   const [video, setVideo] = useState(null);
+  const location = useLocation();
+  const currentPage = new URLSearchParams(location.search).get("page");
 
   useEffect(() => {
-    fetchVideoDetails(id);
-  }, [id]);
+    fetchVideoDetails(id,currentPage);
+  }, [id, currentPage]);
 
-  const fetchVideoDetails = async (videoId) => {
+  const fetchVideoDetails = async (videoId, currentPage) => {
     try {
-      const response = await fetch(`https://internship-service.onrender.com/videos?page=2`);
+      const response = await fetch(`https://internship-service.onrender.com/videos?page=${currentPage}`);
       if (response.ok) {
         const data = await response.json();
         // Find the post with the matching ID
