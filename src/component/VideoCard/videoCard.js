@@ -6,7 +6,7 @@ const VideoCard = ({ video }) => {
   const videoTimeInSeconds = 300; //hardcoded, dynamic approach found using flv lib for frontend
 
   return (
-    <Link to={`/video/${video?.videoId}`}>
+    <Link to={`/video/${video?.postId}`}>
     <div className="flex flex-col mb-8">
        <div className="relative h-48 md:h-40 md:rounded-xl overflow-hidden flex items-center justify-center">
         {video?.submission?.thumbnail && (

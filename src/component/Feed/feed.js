@@ -5,6 +5,7 @@ import VideoCard from '../VideoCard/videoCard';
 function Feed() {
   const [videos, setVideos] = useState([]);
   const apiUrl = 'https://internship-service.onrender.com/videos?page=4';
+  console.log(videos)
 
   useEffect(() => {
     axios
