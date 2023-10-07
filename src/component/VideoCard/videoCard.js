@@ -3,11 +3,16 @@ import VideoLength from '../Shared/videoLength';
 import { Link } from "react-router-dom";
 
 const VideoCard = ({ video }) => {
-  const videoTimeInSeconds = 300; //hardcoded, dynamic approach found using flv lib for frontend
+  const videoTimeInSeconds = 840; //hardcoded, dynamic approach found using flv lib for frontend
+  const abbrStyle = {
+    cursor: "help",
+    textDecoration: "none", 
+    justifyContent : "start"
+  };
 
   return (
     <Link to={`/video/${video?.postId}`}>
-    <div className="flex flex-col mb-8">
+    <div className="flex flex-col mb-8 bg-black">
        <div className="relative h-48 md:h-40 md:rounded-xl overflow-hidden flex items-center justify-center">
         {video?.submission?.thumbnail && (
           <img
@@ -21,7 +26,7 @@ const VideoCard = ({ video }) => {
                         {/* <VideoLength time={video?.lengthSeconds} /> */}
                      {/* )}  */}
       </div>
-      <div className="flex text-black mt-3">
+      <div className="flex text-white mt-3">
         <div className="flex items-start">
           <div className="flex h-9 w-9 rounded-full overflow-hidden">
             {video?.creator?.pic && (
@@ -33,42 +38,53 @@ const VideoCard = ({ video }) => {
             )}
           </div>
         </div>
+        
         <div className="flex flex-col ml-3 overflow-hidden">
           {video?.submission?.title && (
             <span className="text-sm font-bold line-clamp-2 flex items-center">
               {video.submission.title}
             </span>
           )}
-          <div className="flex text-[12px] font-semibold text-black/[0.7] truncate overflow-hidden">
-            <span>{video?.submission?.description}</span>
-          </div>
           {video?.creator?.name && (
-            <span className="text-[12px] font-semibold mt-2 text-black/[0.7] flex items-center">
+            <span className="text-[12px] font-semibold mt-2 text-white/[0.7] flex items-center">
               {video.creator.name}
             </span>
           )}
-          
-          <div className="flex text-[12px] font-semibold text-black/[0.7] truncate overflow-hidden">
+<br></br>
+<div className="flex text-[12px] font-semibold text-white/[0.7] truncate">
+            <abbr
+              title={video?.submission?.description}
+              style={abbrStyle}
+              
+            >
+              {video?.submission?.description.substring(0, 100)}
+              {video?.submission?.description.length > 100 && "..."}
+            </abbr>
+          </div>
+          {/* earlier the profile pic was placed here... */}
+          <div className='flex '>
+          <div className="text-[12px] font-semibold text-white/[0.7] truncate overflow-hidden p-2">
             <span>{`${video?.comment?.count || 0} comments`}</span>
           </div>
-          <div className="flex text-[12px] font-semibold text-black/[0.7] truncate overflow-hidden">
+          <div className="flex text-[12px] font-semibold text-white/[0.7] truncate overflow-hidden p-2">
             <span>{`${video?.reaction?.count || 0} reactions`}</span>
           </div>
-          <div className="flex text-[12px] font-semibold text-black/[0.7] truncate overflow-hidden">
+          </div>
+          {/* <div className="flex text-[12px] font-semibold text-white/[0.7] truncate overflow-hidden">
             <span>{`${
               video?.comment?.commentingAllowed
                 ? 'Comments Allowed'
                 : 'Comments Not Allowed'
             }`}</span>
-          </div>
-          {video?.submission?.hyperlink && (
+          </div> */}
+          {/* {video?.submission?.hyperlink && (
             <a
               href={video.submission.hyperlink}
               className="text-blue-500 hover:underline"
             >
               Read More
-            </a>
-          )}
+            </a> */}
+          {/* )} */}
         </div>
       </div>
     </div>

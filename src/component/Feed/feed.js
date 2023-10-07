@@ -4,7 +4,7 @@ import VideoCard from '../VideoCard/videoCard';
 
 function Feed() {
   const [videos, setVideos] = useState([]);
-  const apiUrl = 'https://internship-service.onrender.com/videos?page=4';
+  const apiUrl = 'https://internship-service.onrender.com/videos?page=2';
   console.log(videos)
 
   useEffect(() => {
@@ -24,13 +24,13 @@ function Feed() {
   }, [apiUrl]);
 
   return (
-      <div className="flex-grow h-full overflow-y-auto bg-white">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-5">
+      <div className="flex-grow h-full overflow-y-auto bg-black">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-5 ">
           {!videos.length ? (
             <p>Loading...</p>
           ) : (
             videos.map((video) => (
-              <div key={video.postId} className="mb-8">
+              <div key={video.postId} className="mb-8 border border-white border-solid rounded p-2">
                 <VideoCard video={video} />
               </div>
             ))
