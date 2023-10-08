@@ -41,7 +41,7 @@ function Feed() {
           <p>Loading...</p>
         ) : (
           videos.map((video) => (
-            <div key={video.postId} className="mb-8 border border-white border-solid rounded p-2">
+            <div key={video.postId} className="mb-8 border border-white border-solid rounded p-2 bg-slate-300 ">
               <VideoCard video={video} currentPage={currentPage} />
             </div>
           ))

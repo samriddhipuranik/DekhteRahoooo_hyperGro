@@ -13,7 +13,7 @@ const VideoCard = ({ video, currentPage }) => {
   return (
     
     <Link to={`/video/${video?.postId}?page=${currentPage}`}>
-    <div className="flex flex-col mb-8 bg-black">
+    <div className="flex flex-col mb-8 bg-slate-300 ">
        <div className="relative h-48 md:h-40 md:rounded-xl overflow-hidden flex items-center justify-center">
         {video?.submission?.thumbnail && (
           <img
@@ -40,19 +40,19 @@ const VideoCard = ({ video, currentPage }) => {
           </div>
         </div>
         
-        <div className="flex flex-col ml-3 overflow-hidden">
+        <div className="flex flex-col ml-3 overflow-hidden ">
           {video?.submission?.title && (
-            <span className="text-sm font-bold line-clamp-2 flex items-center">
+            <span className="text-sm font-bold line-clamp-2 flex items-center text-black ">
               {video.submission.title}
             </span>
           )}
           {video?.creator?.name && (
-            <span className="text-[12px] font-semibold mt-2 text-white/[0.7] flex items-center">
+            <span className="text-[12px] font-semibold mt-2 text-black/[0.7] flex items-center ">
               {video.creator.name}
             </span>
           )}
 <br></br>
-<div className="flex text-[12px] font-semibold text-white/[0.7] truncate">
+<div className="flex text-[12px] font-semibold text-black/[0.7] truncate">
             <abbr
               title={video?.submission?.description}
               style={abbrStyle}
@@ -64,10 +64,10 @@ const VideoCard = ({ video, currentPage }) => {
           </div>
           {/* earlier the profile pic was placed here... */}
           <div className='flex '>
-          <div className="text-[12px] font-semibold text-white/[0.7] truncate overflow-hidden p-2">
+          <div className="text-[12px] font-semibold text-black/[0.7] truncate overflow-hidden p-2">
             <span>{`${video?.comment?.count || 0} comments`}</span>
           </div>
-          <div className="flex text-[12px] font-semibold text-white/[0.7] truncate overflow-hidden p-2">
+          <div className="flex text-[12px] font-semibold text-black/[0.7] truncate overflow-hidden p-2">
             <span>{`${video?.reaction?.count || 0} reactions`}</span>
           </div>
           </div>

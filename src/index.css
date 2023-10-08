@@ -61,7 +61,28 @@ code {
     }
 }
 
-
+.header {
+    background-color: #333; 
+    padding: 0.5rem; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo {
+    width: 750px; 
+    height: 75px; 
+    border-radius: 50%; 
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(112, 97, 243, 0.2); 
+  }
+  .cursive-text {
+    position: absolute;
+    left: 45%;
+    font-family: 'Dancing Script', cursive;
+    font-size:xx-large; 
+    color: #fff; 
+  }
 .custom-h {
     height: auto !important;
 }

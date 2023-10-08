@@ -48,7 +48,7 @@ const VideoDetails = () => {
             <i className="fas fa-play-circle text-3xl"></i>
           </div>
         </div> */}
-        <div className="relative w-full" style={{ paddingTop: "66.25%" }}>
+        <div className="relative w-full" style={{ paddingTop: "63%" }}>
           {/* Video with border radius */}
           <video
             controls
