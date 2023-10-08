@@ -50,16 +50,16 @@ function Feed() {
       <div className="flex justify-center mt-4">
         {/* Create pagination buttons for all 9 pages */}
         {[...Array(totalPages)].map((_, index) => (
-          <button
-            key={index}
-            className={`mx-2 px-4 py-2 rounded-full border border-white ${
-              currentPage === index ? 'bg-white text-black' : 'text-white'
-            }`}
-            onClick={() => handlePageChange(index)}
-          >
-            {index+1}
-          </button>
-        ))}
+ <button
+ key={index}
+ className={`mx-1 my-1 px-2 py-1 rounded-full border border-white 
+ ${currentPage === index ? 'bg-white text-black' : 'text-white'}
+ hover:bg-white hover:text-black transition duration-300 ease-in-out
+ md:mx-2 md:my-2 md:px-3 md:py-1`} // Larger size for screens larger than md
+ onClick={() => handlePageChange(index)}
+>
+ {index + 1}
+</button>    ))}
       </div>
     </div>
   );
